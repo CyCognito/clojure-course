@@ -127,15 +127,16 @@ Reveal.initialize({
   ]
 });</script><link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
 <script>
-    window.klipse_settings = {
-        selector: '.eval-clojure',
-	selector_eval_js: '.eval-javascript',
-	selector_eval_html: '.eval-html'
-    };
+ window.klipse_settings = {
+   selector: '.eval-clojure',
+	 selector_eval_js: '.eval-javascript',
+	 selector_eval_html: '.eval-html',
+   re_evaluate_all_snippets_on_change: true,
+ };
 </script>
 <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
 <script>
-    Reveal.addEventListener( 'slidechanged', function() {
-        window.dispatchEvent(new Event('resize'));
-    } );
+ Reveal.addEventListener( 'slidechanged', function() {
+   window.dispatchEvent(new Event('resize'));
+ } );
 </script></body></html>

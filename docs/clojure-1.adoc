@@ -1,0 +1,109 @@
+= Clojure course: Part 1
+include::slide.attrs[]
+:challenge: 🏂
+:bl: pass:[ +]
+
+
+
+[state=title]
+== Clojure course: Part 1
+
+image::cycognito.jpg[]
+
+== Online tools and materials
+
+[.left.w40]
+. http://app.klipse.tech/?eval_only=1[Klipse: Clojure REPL online, window="_blank"]
+. https://clojuredocs.org/[ClojureDocs: Documentation with Examples, window="_blank"]
+. http://clojurescriptkoans.com/[ClojureScript koans, window="_blank"]
+. http://clojurians.net/[Clojurians: Slack Channel, window="_blank"]
+. https://clojureverse.org/[Clojureverse forum, window="_blank"]
+
+image::tools.jpg[]
+
+== Topics
+
+[.left.w70]
+. Functions
+. Lists
+. Vectors
+. Maps
+. Sets
+
+[.w20]
+image::clojure-logo.png[]
+
+== Functions
+A function is an entity that receives multiple _things_ and return a _thing_.
+
+In *functional programming* the _things_ that functions receive and return are allowed to be *functions*.
+
+TIP: We say that functions are *first class citizens*.
+
+image::first-class.jpg[]
+
+=== Function syntax
+
+[.fragment]
+--
+We create a function with `defn`
+
+[source.eval-clojure, clojure]
+(defn bar
+  "bar is a function with documentation"
+  [a b c]
+  b)
+--
+
+[.fragment]
+--
+We call a function like this
+[source.eval-clojure, clojure]
+(bar 1 2 3)
+--
+
+=== Functions - Practice
+
+> Write a function that receives a name and returns a string with the concatanation of `"Hello"` and the name. You'll need to use the https://clojuredocs.org/clojure.core/str[str, window="_blank"] function.
+
+[source.eval-clojure, clojure]
+(defn hello [name]
+;; Write your code here
+)
+
+{bl}
+
+[source.eval-clojure, clojure]
+(assert (= (hello "Cycognito!") "Hello Cycognito!"))
+
+=== Functions - Practice (2)
+
+> {challenge} Write a function called `applicator` that receives two arguments: a function `f` and a "thing" named `x` and returns the application of the function `f` on `x`
+
+[source.eval-clojure, clojure]
+(defn applicator [func number])
+
+{bl}
+[source.eval-clojure, clojure]
+(assert (= (applicator inc 19) 20))
+
+
+== Interlude - Structural editing
+
+++++
+<iframe width="100%" height="1000px" src="https://calva.io/paredit/">
+</iframe>
+++++
+
+== Interlude - The REPL and the IDE
+
+== Homeworks
+
+[.left.w60]
+. Register to http://clojurians.net/[Clojurians: Slack Channel, window="_blank"]
+. 10 minutes of http://clojurescriptkoans.com/[ClojureScript koans, window="_blank"] every day
+. Practice https://calva.io/paredit/[structural editing, window="blank"] on your IDE
+. Connect the REPL to your IDE
+
+[.left.w30]
+image::homeworks.png[]
