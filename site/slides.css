@@ -28,13 +28,6 @@ section > .centered {
     text-align: center;
 }
 
-.challenge:before {
-  content: "\1F3C2 ";/🏂*/
-}
-.meditation:before {
-  content: "\2615    "; /* ☕ */
-}
-
 .left {
     float: left;
 }
@@ -101,19 +94,19 @@ section .medium-font {
 }
 
 
-.margin-left {
+.reveal .margin-left {
     margin-left: 10px;
 }
 
-.margin-right {
+.reveal .margin-right {
     margin-right: 10px;
 }
 
-.margin-top {
+.reveal .margin-top {
     margin-top: 10px;
 }
 
-.margin-bottom {
+.reveal .margin-bottom {
     margin-bottom: 10px;
 }
 
@@ -175,6 +168,7 @@ section .medium-font {
 .reveal section img {
   margin: 0;
   border: none;
+  box-shadow: none;
 }
 
 .reveal section p, h1, h2, div {

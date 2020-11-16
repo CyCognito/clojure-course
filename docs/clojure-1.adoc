@@ -1,14 +1,28 @@
 = Clojure course: Part 1
 include::slide.attrs[]
-:challenge: 🏂
-:bl: pass:[ +]
-
-
 
 [state=title]
-== Clojure course: Part 1
+== Introduction and functions syntax
 
-image::cycognito.jpg[]
+[.centered]
+--
+{bl}
+{bl}
+{bl}
+{bl}
+{bl}
+
+[.left]
+image::cycognito.jpg[height=300px]
+
+[.left.margin-right]
+{bl}
+{bl}
+icon:heart[size=lg]
+
+[.left]
+image::clojure-logo.png[height=300px]
+--
 
 == Online tools and materials
 
@@ -20,18 +34,6 @@ image::cycognito.jpg[]
 . https://clojureverse.org/[Clojureverse forum, window="_blank"]
 
 image::tools.jpg[]
-
-== Topics
-
-[.left.w70]
-. Functions
-. Lists
-. Vectors
-. Maps
-. Sets
-
-[.w20]
-image::clojure-logo.png[]
 
 == Functions
 A function is an entity that receives multiple _things_ and return a _thing_.
@@ -88,22 +90,12 @@ We call a function like this
 (assert (= (applicator inc 19) 20))
 
 
-== Interlude - Structural editing
-
-++++
-<iframe width="100%" height="1000px" src="https://calva.io/paredit/">
-</iframe>
-++++
-
-== Interlude - The REPL and the IDE
-
 == Homeworks
 
 [.left.w60]
 . Register to http://clojurians.net/[Clojurians: Slack Channel, window="_blank"]
 . 10 minutes of http://clojurescriptkoans.com/[ClojureScript koans, window="_blank"] every day
-. Practice https://calva.io/paredit/[structural editing, window="blank"] on your IDE
-. Connect the REPL to your IDE
+. (Re)do all the exercises
 
 [.left.w30]
 image::homeworks.png[]

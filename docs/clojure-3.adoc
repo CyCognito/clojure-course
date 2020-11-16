@@ -1,0 +1,258 @@
+= Clojure course: Part 3
+include::slide.attrs[]
+
+[state=title]
+== Data collections
+[.centered]
+--
+{bl}
+{bl}
+{bl}
+{bl}
+{bl}
+
+[.left]
+image::cycognito.jpg[height=300px]
+
+[.left.margin-right]
+{bl}
+{bl}
+icon:heart[size=lg]
+
+[.left]
+image::clojure-logo.png[height=300px]
+--
+
+
+== Topics
+
+. Lists
+. Vectors
+. Maps
+. Sets
+
+== Lists
+
+image::hello-list.jpg[]
+
+
+=== List creation
+
+
+[.fragment]
+--
+You can mix element of different types inside a list
+[source.eval-clojure, clojure]
+(list 1 2 "hello")
+--
+
+[.fragment]
+--
+You can nest lists inside lists inside lists inside lists...
+[source.eval-clojure, clojure]
+(list 1 2 (list "a" "b") (list 1.2 (list 3.43243 2.5)))
+--
+
+[.fragment]
+--
+There is a syntactic sugar for list creation: the single quote `'`
+[source.eval-clojure, clojure]
+'(1 2 3)
+--
+
+[.fragment]
+--
+And it works fine with nested lists
+[source.eval-clojure, clojure]
+'(1 2 ("a" "b" (1 2 4)))
+--
+
+=== Functions on lists
+
+[.fragment]
+--
+The most natural manipulation on a list is to take the list without its first element
+[source.eval-clojure, clojure]
+(rest '(1 2 3 4 5))
+--
+
+[.fragment]
+--
+In order to get the first element of a list, use first
+[source.eval-clojure, clojure]
+(first '(1 2 3 4 5))
+--
+
+[.fragment]
+--
+Lists are linked lists, therefore elements are prepended *efficiently* to the head of the list
+[source.eval-clojure, clojure]
+(cons 1 '(2 3))
+--
+
+[.fragment]
+--
+You can count the elements of a list, but it's not efficient
+[source.eval-clojure, clojure]
+(count '(1 2 3 4 5))
+--
+
+=== Lists - Practice
+
+> Write a function that receives a list and returns its fifth element.
+
+[source.eval-clojure, clojure]
+(defn fifth [lst]
+;; Write your code here
+)
+
+{bl}
+[source.eval-clojure, clojure]
+(assert (= (fifth '(1 2 3 4 5 6 7 8)) 5))
+
+=== Lists - Practice (2)
+
+> {challenge} Write a function that receives a number `n` and a list and returns its nth element. You'll need to use recursion.
+
+[source.eval-clojure, clojure]
+(defn nth-element [lst n])
+
+{bl}
+
+[source.eval-clojure, clojure]
+(assert (= (nth-element '(1 2 3 4 5 6 7 8 9 10 11) 10) 10))
+
+
+=== Lists - Practice (3)
+
+> {challenge} Write a function called `select-1-5-7` that receives a list and returns a list with the elements of the original list at positions 1, 5 and 7.
+
+You might use either your `nth-element` function or clojure `nth`.
+
+[source.eval-clojure, clojure]
+(defn select-1-5-7 [lst])
+
+{bl}
+
+[source.eval-clojure, clojure]
+(assert (= (select-1-5-7 (range 10)) '(0 4 6)))
+
+== Vectors
+
+*Vectors* are like *lists* but with *fast random access*.
+
+image::clojure-vectors.png[]
+
+=== Vector creation
+
+[.fragment]
+--
+Vectors are created using `vector`
+[source.eval-clojure, clojure]
+(vector 1 2 3 4 5)
+--
+
+[.fragment]
+--
+Vectors can also be created using the literal `[]`
+[source.eval-clojure, clojure]
+[1 2 3 4 "aa" [1 2] [1 2 3]]
+--
+
+[.fragment]
+--
+Like with lists, you can access the first element with `first`
+[source.eval-clojure, clojure]
+(first [1 2 3 4 5])
+--
+
+[.fragment]
+--
+And you can also access any element in the vector and it is efficient:
+[source.eval-clojure, clojure]
+(get [0 1 2 3 4 5 6 7 8 9 10] 7)
+--
+
+[.fragment]
+--
+You can convert a list into a vector with `vec`
+[source.eval-clojure, clojure]
+(vec '(1 2 3 4 5))
+--
+
+
+=== Vectors vs lists: performances
+
+[cols="2*", frame=none, grid=none]
+|===
+a| [.fragment]
+--
+Let's create a long list
+[source.eval-clojure, clojure]
+(def long-list (reverse
+(reverse (range 1e6))))
+--
+
+a|[.fragment]
+--
+And a long vector
+[source.eval-clojure, clojure]
+(def long-vec (vec long-list))
+--
+|===
+
+
+[.fragment]
+--
+Let's compare the perfs
+[cols="2*", frame=none, grid=none]
+|===
+a|
+[source.eval-clojure, clojure]
+----
+(time (nth long-list (dec 1e6)))
+----
+
+a|
+[source.eval-clojure, clojure]
+----
+(time (nth long-vec (dec 1e6)))
+----
+|===
+--
+
+[.fragment]
+--
+{meditation} Why is `last` so slow on a vector?
+[source.eval-clojure, clojure]
+(time (last long-vec))
+--
+
+=== Vectors - Practice
+
+> Write a function that receives a vector and converts it to a list
+
+[source.eval-clojure, clojure]
+(defn ->list [vec])
+
+{bl}
+
+[source.eval-clojure, clojure]
+(assert (= (->list [1 2]) '(1 2)))
+
+=== Vectors - Practice (2)
+
+> Write a recursive function that receives a vector and a "thing" vector and returns `true` or `false` according to the presence of the "thing" in the vector
+
+[source.eval-clojure, clojure]
+(defn present? [v thing])
+
+{bl}
+
+[source.eval-clojure, clojure]
+(assert (= (present? [1 2 3] 1)
+           true))
+
+[source.eval-clojure, clojure]
+(assert (= (present? [1 2 3] 18)
+           false))

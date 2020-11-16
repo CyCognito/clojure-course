@@ -1,0 +1,28 @@
+= Clojure course: Part 2
+include::slide.attrs[]
+
+[state=title]
+== Local development environment
+
+image::cycognito.jpg[]
+
+
+==  Structural editing
+
+++++
+<iframe width="100%" height="1000px" src="https://calva.io/paredit/">
+</iframe>
+++++
+
+== The REPL
+
+== The REPL connected to the IDE
+
+== Homeworks
+
+[.left.w60]
+. Practice https://calva.io/paredit/[structural editing, window="blank"] on your IDE
+. Connect the REPL to your IDE
+
+[.left.w30]
+image::homeworks.png[]
