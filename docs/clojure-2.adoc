@@ -1,5 +1,6 @@
 = Clojure course: Part 2
 include::slide.attrs[]
+:link-intellij-shortcuts: https://docs.google.com/spreadsheets/d/1ziaariJcAj4LpIO10nwb3C--TMkxHiGpl75kGgQou8s/edit#gid=0
 
 [state=title]
 == Local development environment
@@ -7,7 +8,30 @@ include::{includedir}/intro.adoc[]
 
 == Use tools like a professional Clojure developer
 
-=== Homoiconicity
+TIP: Professional tools are never easy to use for beginners
+
+== Homoiconicity
+
+TIP: The syntax of the code is the same as the syntax of the data.
+
+[cols="2*", frame=none, grid=none]
+|===
+a|
+[source,clojure]
+(defn dummy
+  "A dummy function"
+  [n]
+  (let [a (inc n)]
+    a))
+
+a|
+[source,clojure]
+'(a b
+  c
+  [d.a d.b]
+  (e.a [e.b.a (e.b.b.a e.b.b.b)]
+    e.c)
+|===
 
 ===  Structural editing
 
@@ -22,9 +46,9 @@ http://danmidwood.com/content/2014/11/21/animated-paredit.html[Animated Paredit,
 
 === Practice Structural editing
 
-https://docs.google.com/spreadsheets/d/1ziaariJcAj4LpIO10nwb3C--TMkxHiGpl75kGgQou8s/edit#gid=0[IntelliJ shortcuts, window="blank"]
+link:++https://docs.google.com/spreadsheets/d/1ziaariJcAj4LpIO10nwb3C--TMkxHiGpl75kGgQou8s/edit#gid=0++[IntelliJ shortcuts, window="blank"]
 
-https://drive.google.com/file/d/14t5mdq3oc7hXB66FON4IG3Wnjxb-AqDg/view?usp=sharing[IntelliJ settings, window="blank"]
+link:++https://drive.google.com/file/d/14t5mdq3oc7hXB66FON4IG3Wnjxb-AqDg/view?usp=sharing++[IntelliJ settings file, window="blank"]
 
 [cols="2*", frame=none, grid=none]
 |===
@@ -88,6 +112,15 @@ to
 {meditation}The code is a tree.
 
 TIP: Never use arrow keys to navigate in your code
+
+[source,clojure]
+'(a b
+  c
+  [d.a d.b]
+  (e.a [e.b.a (e.b.b.a e.b.b.b)]
+    e.c)
+
+{challenge} To navigate from `b` to `e.a`, we move _forward_ twice and _forward into sexp_ once
 
 == The REPL
 

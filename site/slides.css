@@ -8,9 +8,17 @@ pre code.hljs {
 
 }
 
+.reveal a {
+  text-decoration: underline;
+}
+
 .highlight {
     background-color: white;
     border: none;
+}
+
+.reveal code {
+  background-color: #E1E1E1;
 }
 
 .hidden {
