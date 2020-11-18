@@ -3,26 +3,120 @@ include::slide.attrs[]
 
 [state=title]
 == Local development environment
+include::{includedir}/intro.adoc[]
 
-image::cycognito.jpg[]
+== Use tools like a professional Clojure developer
+
+=== Homoiconicity
+
+===  Structural editing
+
+TIP: Constraints are here to help you!
+
+[.fragment]
+--
+Paredit never lets your code become unbalanced
+
+http://danmidwood.com/content/2014/11/21/animated-paredit.html[Animated Paredit, window="blank"]
+--
+
+=== Practice Structural editing
+
+https://docs.google.com/spreadsheets/d/1ziaariJcAj4LpIO10nwb3C--TMkxHiGpl75kGgQou8s/edit#gid=0[IntelliJ shortcuts, window="blank"]
+
+https://drive.google.com/file/d/14t5mdq3oc7hXB66FON4IG3Wnjxb-AqDg/view?usp=sharing[IntelliJ settings, window="blank"]
+
+[cols="2*", frame=none, grid=none]
+|===
+a|[.fragment]
+--
+Wrap expression
+[source,clojure]
+(println 1)
+
+to
+
+[source,clojure]
+(when a (println 1))
+--
+
+a|[.fragment]
+--
+Slurp forward and Barf backward
+[source,clojure]
+sort [1 2 3]
+
+to
+
+[source,clojure]
+(sort [1 2 3])
+--
+
+a|[.fragment]
+--
+Splice
+[source,clojure]
+  [1 2 3]
+
+to
+
+[source,clojure]
+  1 2 3
+--
+
+a|[.fragment]
+--
+Kill backwards
+[source,clojure]
+(when a (println 1))
+
+to
+
+[source,clojure]
+(println 1)
+--
+|===
 
 
-==  Structural editing
 
-++++
-<iframe width="100%" height="1000px" src="https://calva.io/paredit/">
-</iframe>
-++++
+
+
+
+
+===  Structural navigation
+
+{meditation}The code is a tree.
+
+TIP: Never use arrow keys to navigate in your code
 
 == The REPL
 
-== The REPL connected to the IDE
+REPL comes from the LISP tradition
+
+REPL is much more than a shell or a browser console
+
+.The Remote Agent Experiment: Debugging Code from 60 Million Miles Away
+video::_gZK0tW8EhQ[youtube, height=480]
+
+
+=== The REPL connected to the IDE
+
+. Evaluate the form that ends at caret
+. Evaluate top form
+. Evaluate the whole buffer
+. Comment block
+
+=== Debug without a debugger
+
+spy
 
 == Homeworks
 
 [.left.w60]
-. Practice https://calva.io/paredit/[structural editing, window="blank"] on your IDE
+. Practice structural editing on your IDE
+. Navigate the code without arrow keys
 . Connect the REPL to your IDE
+
 
 [.left.w30]
 image::homeworks.png[]

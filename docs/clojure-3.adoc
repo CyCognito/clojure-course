@@ -3,26 +3,7 @@ include::slide.attrs[]
 
 [state=title]
 == Data collections
-[.centered]
---
-{bl}
-{bl}
-{bl}
-{bl}
-{bl}
-
-[.left]
-image::cycognito.jpg[height=300px]
-
-[.left.margin-right]
-{bl}
-{bl}
-icon:heart[size=lg]
-
-[.left]
-image::clojure-logo.png[height=300px]
---
-
+include::{includedir}/intro.adoc[]
 
 == Topics
 
