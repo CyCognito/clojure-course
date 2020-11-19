@@ -10,6 +10,14 @@ include::{includedir}/intro.adoc[]
 
 TIP: Professional tools are never easy to use for beginners
 
+[.fragment]
+[.left.w60]
+image::professional-dj.jpg[]
+
+[.fragment]
+[.left.w30]
+image::guitarist-fingers.jpg[]
+
 == Homoiconicity
 
 TIP: The syntax of the code is the same as the syntax of the data.
