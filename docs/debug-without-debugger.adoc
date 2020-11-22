@@ -47,7 +47,7 @@ include::{includedir}/intro.adoc[]
 
 [.left.w50]
 [.fragment]
-{meditation} How is it related to immutability?
+{meditation} How is it related to homoiconicity?
 
 [.left.w40]
 [.fragment]
