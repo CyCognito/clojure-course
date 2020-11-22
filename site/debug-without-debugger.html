@@ -13,36 +13,37 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <br>
 <span class="icon"><i class="fa fa-heart fa-lg"></i></span></p></div>
 <div class="imageblock left" style=""><img src="img/clojure-logo.png" alt="clojure logo" height="300px"></div></div></div></section>
-<section id="old_well_known_print"><h2>Old well known print</h2><div class="paragraph fragment"><p>(defn foo [a b]
+<section id="old_well_known_print"><h2>Old well known print</h2><div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(defn foo [a b]
   (let [x (/ a b)
         y (+ a b)]
     (println "x: " x)
     (println "y: " x)
-    (+ x y)))
-<br></p></div>
-<div class="paragraph fragment"><p>(foo 2 3)</p></div></section>
-<section id="dbg_macro"><h2><code>dbg</code> macro</h2><div class="listingblock fragment eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(defn foo [a b]
-  (+ (dbg (* a b))
-     (/ (dbg b) 3)))</code></pre></div></div>
+    (+ x y)))</code></pre></div></div></div></div>
 <div class="paragraph"><p><br></p></div>
-<div class="listingblock fragment eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(foo 12 2)</code></pre></div></div>
-<div class="listingblock fragment clojure"><div class="content"><pre class="highlight"><code data-noescape>(defmacro dbg[x]
+<div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(foo 2 3)</code></pre></div></div></div></div></section>
+<section id="dbg_macro"><h2><code>dbg</code> macro</h2><div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(defn foo [a b]
+  (+ (dbg (* a b))
+     (/ (dbg b) 3)))</code></pre></div></div></div></div>
+<div class="paragraph"><p><br></p></div>
+<div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(foo 12 2)</code></pre></div></div></div></div>
+<div class="paragraph left w50 fragment"><p>☕ How is it related to immutability?</p></div>
+<div class="openblock left w40 fragment"><div class="content"><div class="listingblock clojure"><div class="content"><pre class="highlight"><code data-noescape>(defmacro dbg[x]
   (when *assert*
     `(let [x# ~x]
        (println (str '~x ": ") x#)
-       x#)))</code></pre></div></div></section>
-<section id="def_like_crazy"><h2><code>def</code> like crazy</h2><div class="paragraph fragment"><p>(defn foo [a b]
+       x#)))</code></pre></div></div></div></div></section>
+<section id="def_like_crazy"><h2><code>def</code> like crazy</h2><div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(defn foo [a b]
   (let [x (/ a b)
         y (+ a b)]
     (def x x)
     (def y y)
-    (+ x y)))</p></div>
+    (+ x y)))</code></pre></div></div></div></div>
 <div class="paragraph"><p><br></p></div>
-<div class="paragraph fragment"><p>(foo 2 3)</p></div>
-<div class="paragraph fragment"><p>(+ x y)</p></div>
-<div class="paragraph"><p>☕ How is it related to immutability?</p></div>
-<div class="paragraph"><p><a href="https://blog.michielborkent.nl/2017/05/25/inline-def-debugging/">Inline Def: An Effective* Debugging Technique for Clojure</a></p></div></section>
-<section id="welcome_scope_capture"><h2>Welcome <code>scope-capture</code></h2><div class="paragraph"><p><a href="https://github.com/vvvvalvalval/scope-capture" class="bare">https://github.com/vvvvalvalval/scope-capture</a></p></div></section>
+<div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(foo 2 3)</code></pre></div></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(+ x y)</code></pre></div></div></div></div>
+<div class="paragraph fragment"><p>☕ How is it related to immutability?</p></div></section>
+<section id="welcome_scope_capture"><h2>Welcome <code>scope-capture</code></h2><div class="paragraph"><p><a href="https://github.com/vvvvalvalval/scope-capture" class="bare">https://github.com/vvvvalvalval/scope-capture</a></p></div>
+<div class="paragraph"><p>Demo on the IDE</p></div></section>
 <section id="homeworks"><h2>Homeworks</h2><div class="ulist"><ul><li><p>Use the <code>dbg</code> macro</p></li><li><p>Add <code>sc.api</code> to your <code>profile.clj</code></p></li><li><p>Play with <code>sc.api</code></p></li></ul></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner

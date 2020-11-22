@@ -9,67 +9,94 @@ include::{includedir}/intro.adoc[]
 = Old well known print
 
 [.fragment]
+--
+[source.eval-clojure,clojure]
 (defn foo [a b]
   (let [x (/ a b)
         y (+ a b)]
     (println "x: " x)
     (println "y: " x)
     (+ x y)))
+--
 {bl}
 
 [.fragment]
+--
+[source.eval-clojure,clojure]
 (foo 2 3)
+--
 
 
 = `dbg` macro
 
 [.fragment]
+--
 [source.eval-clojure,clojure]
 (defn foo [a b]
   (+ (dbg (* a b))
      (/ (dbg b) 3)))
+--
 
 {bl}
 
 [.fragment]
+--
 [source.eval-clojure,clojure]
 (foo 12 2)
+--
 
+[.left.w50]
 [.fragment]
+{meditation} How is it related to immutability?
+
+[.left.w40]
+[.fragment]
+--
 [source.clojure]
 (defmacro dbg[x]
   (when *assert*
     `(let [x# ~x]
        (println (str '~x ": ") x#)
        x#)))
+--
 
 = `def` like crazy
 
 [.fragment]
+--
+[source.eval-clojure,clojure]
 (defn foo [a b]
   (let [x (/ a b)
         y (+ a b)]
     (def x x)
     (def y y)
     (+ x y)))
+--
 
 {bl}
 
 [.fragment]
+--
+[source.eval-clojure,clojure]
 (foo 2 3)
+--
 
 
 [.fragment]
+--
+[source.eval-clojure,clojure]
 (+ x y)
+--
 
 
+[.fragment]
 {meditation} How is it related to immutability?
-
-https://blog.michielborkent.nl/2017/05/25/inline-def-debugging/[Inline Def: An Effective* Debugging Technique for Clojure]
 
 = Welcome `scope-capture`
 
 https://github.com/vvvvalvalval/scope-capture
+
+Demo on the IDE
 
 
 = Homeworks
