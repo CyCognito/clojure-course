@@ -11,6 +11,17 @@ window.klipse_settings.re_evaluate_all_snippets_on_change = false;
 </script>
 ++++
 
+== Agenda
+
+{bl}
+{bl}
+{bl}
+{bl}
+{bl}
+{bl}
+[.centered]
+TIP: Leverage *homoiconicity* and *immutability* to empower your *developing experience*
+
 == A _buggy_ function
 
 [.fragment]
@@ -73,7 +84,7 @@ window.klipse_settings.re_evaluate_all_snippets_on_change = false;
 [.fragment]
 {meditation} How is it related to homoiconicity?
 
-[.left.w40]
+[.left.w50]
 [.fragment]
 --
 [source.clojure]

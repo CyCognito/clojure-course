@@ -24,6 +24,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <script>
 window.klipse_settings.re_evaluate_all_snippets_on_change = false;
 </script></section>
+<section id="agenda"><h2>Agenda</h2><div class="paragraph"><p><br>
+<br>
+<br>
+<br>
+<br>
+<br></p></div>
+<div class="admonitionblock tip centered"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Leverage <strong>homoiconicity</strong> and <strong>immutability</strong> to empower your <strong>developing experience</strong></td></tr></table></div></section>
 <section id="a_buggy_function"><h2>A <em>buggy</em> function</h2><div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(defn foo [a b]
   (let [x (/ a b)
         y (+ a b)]
@@ -44,7 +51,7 @@ window.klipse_settings.re_evaluate_all_snippets_on_change = false;
 <div class="paragraph"><p><br></p></div>
 <div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(foo 12 2)</code></pre></div></div></div></div>
 <div class="paragraph left w50 fragment"><p>☕ How is it related to homoiconicity?</p></div>
-<div class="openblock left w40 fragment"><div class="content"><div class="listingblock clojure"><div class="content"><pre class="highlight"><code data-noescape>(defmacro dbg[x]
+<div class="openblock left w50 fragment"><div class="content"><div class="listingblock clojure"><div class="content"><pre class="highlight"><code data-noescape>(defmacro dbg[x]
   (when *assert*
     `(let [x# ~x]
        (println (str '~x ": ") x#)
