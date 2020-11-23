@@ -3,7 +3,15 @@ link.rel = 'stylesheet';
 link.type = 'text/css';
 link.href = window.location.search.match( /print-pdf/gi ) ? "reveal.js/css/print/pdf.css" : "reveal.js/css/print/paper.css";
 document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="reveal.js/lib/js/html5shiv.js"></script><![endif]--><link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet"><link rel="stylesheet" href="slides.css"></head><body><div class="reveal"><div class="slides"><section id="data_collections" data-state="title"><h2>Data collections</h2><div class="openblock centered"><div class="content"><div class="paragraph"><p><br>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+<script>
+ window.klipse_settings = {
+   selector: '.eval-clojure',
+	 selector_eval_js: '.eval-javascript',
+	 selector_eval_html: '.eval-html',
+   re_evaluate_all_snippets_on_change: true,
+ };
+</script><link rel="stylesheet" href="slides.css"></head><body><div class="reveal"><div class="slides"><section id="data_collections" data-state="title"><h2>Data collections</h2><div class="openblock centered"><div class="content"><div class="paragraph"><p><br>
 <br>
 <br>
 <br>
@@ -157,14 +165,6 @@ Reveal.initialize({
       { src: 'reveal.js/plugin/notes/notes.js', async: true }
   ]
 });</script><link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
-<script>
- window.klipse_settings = {
-   selector: '.eval-clojure',
-	 selector_eval_js: '.eval-javascript',
-	 selector_eval_html: '.eval-html',
-   re_evaluate_all_snippets_on_change: true,
- };
-</script>
 <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
 <script>
  Reveal.addEventListener( 'slidechanged', function() {

@@ -5,8 +5,32 @@ include::slide.attrs[]
 == Debug without a debugger
 include::{includedir}/intro.adoc[]
 
+++++
+<script>
+window.klipse_settings.re_evaluate_all_snippets_on_change = false;
+</script>
+++++
 
-= Old well known print
+== A _buggy_ function
+
+[.fragment]
+--
+[source.eval-clojure,clojure]
+(defn foo [a b]
+  (let [x (/ a b)
+        y (+ a b)]
+    (+ x y)))
+--
+{bl}
+
+[.fragment]
+--
+[source.eval-clojure, clojure]
+(foo 2 3)
+--
+
+
+== Old well known print
 
 [.fragment]
 --
@@ -22,16 +46,16 @@ include::{includedir}/intro.adoc[]
 
 [.fragment]
 --
-[source.eval-clojure,clojure]
+[source.eval-clojure, clojure]
 (foo 2 3)
 --
 
 
-= `dbg` macro
+== `dbg` macro
 
 [.fragment]
 --
-[source.eval-clojure,clojure]
+[source.eval-clojure, clojure]
 (defn foo [a b]
   (+ (dbg (* a b))
      (/ (dbg b) 3)))
@@ -41,7 +65,7 @@ include::{includedir}/intro.adoc[]
 
 [.fragment]
 --
-[source.eval-clojure,clojure]
+[source.eval-clojure, clojure]
 (foo 12 2)
 --
 
@@ -60,11 +84,11 @@ include::{includedir}/intro.adoc[]
        x#)))
 --
 
-= `def` like crazy
+== `def` like crazy
 
 [.fragment]
 --
-[source.eval-clojure,clojure]
+[source.eval-clojure, clojure]
 (defn foo [a b]
   (let [x (/ a b)
         y (+ a b)]
@@ -92,14 +116,14 @@ include::{includedir}/intro.adoc[]
 [.fragment]
 {meditation} How is it related to immutability?
 
-= Welcome `scope-capture`
+== Welcome `scope-capture`
 
 https://github.com/vvvvalvalval/scope-capture
 
 Demo on the IDE
 
 
-= Homeworks
+== Homeworks
 
 * Use the `dbg` macro
 * Add `sc.api` to your `profile.clj`

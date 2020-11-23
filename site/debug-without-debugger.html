@@ -3,7 +3,15 @@ link.rel = 'stylesheet';
 link.type = 'text/css';
 link.href = window.location.search.match( /print-pdf/gi ) ? "reveal.js/css/print/pdf.css" : "reveal.js/css/print/paper.css";
 document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="reveal.js/lib/js/html5shiv.js"></script><![endif]--><link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet"><link rel="stylesheet" href="slides.css"></head><body><div class="reveal"><div class="slides"><section id="debug_without_a_debugger" data-state="title"><h2>Debug without a debugger</h2><div class="openblock centered"><div class="content"><div class="paragraph"><p><br>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+<script>
+ window.klipse_settings = {
+   selector: '.eval-clojure',
+	 selector_eval_js: '.eval-javascript',
+	 selector_eval_html: '.eval-html',
+   re_evaluate_all_snippets_on_change: true,
+ };
+</script><link rel="stylesheet" href="slides.css"></head><body><div class="reveal"><div class="slides"><section id="debug_without_a_debugger" data-state="title"><h2>Debug without a debugger</h2><div class="openblock centered"><div class="content"><div class="paragraph"><p><br>
 <br>
 <br>
 <br>
@@ -12,7 +20,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <div class="paragraph left margin-right"><p><br>
 <br>
 <span class="icon"><i class="fa fa-heart fa-lg"></i></span></p></div>
-<div class="imageblock left" style=""><img src="img/clojure-logo.png" alt="clojure logo" height="300px"></div></div></div></section>
+<div class="imageblock left" style=""><img src="img/clojure-logo.png" alt="clojure logo" height="300px"></div></div></div>
+<script>
+window.klipse_settings.re_evaluate_all_snippets_on_change = false;
+</script></section>
+<section id="a_buggy_function"><h2>A <em>buggy</em> function</h2><div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(defn foo [a b]
+  (let [x (/ a b)
+        y (+ a b)]
+    (+ x y)))</code></pre></div></div></div></div>
+<div class="paragraph"><p><br></p></div>
+<div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(foo 2 3)</code></pre></div></div></div></div></section>
 <section id="old_well_known_print"><h2>Old well known print</h2><div class="openblock fragment"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(defn foo [a b]
   (let [x (/ a b)
         y (+ a b)]
@@ -136,14 +153,6 @@ Reveal.initialize({
       { src: 'reveal.js/plugin/notes/notes.js', async: true }
   ]
 });</script><link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
-<script>
- window.klipse_settings = {
-   selector: '.eval-clojure',
-	 selector_eval_js: '.eval-javascript',
-	 selector_eval_html: '.eval-html',
-   re_evaluate_all_snippets_on_change: true,
- };
-</script>
 <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
 <script>
  Reveal.addEventListener( 'slidechanged', function() {
