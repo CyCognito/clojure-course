@@ -40,7 +40,6 @@ TIP: Leverage *homoiconicity* and *immutability* to empower your *developing exp
 (foo 2 3)
 --
 
-
 == Old well known print
 
 [.fragment]
@@ -50,7 +49,7 @@ TIP: Leverage *homoiconicity* and *immutability* to empower your *developing exp
   (let [x (/ a b)
         y (+ a b)]
     (println "x: " x)
-    (println "y: " x)
+    (println "y: " y)
     (+ x y)))
 --
 {bl}
