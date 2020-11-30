@@ -5,12 +5,18 @@ include::slide.attrs[]
 == Data collections
 include::{includedir}/intro.adoc[]
 
+
 == Topics
 
 . Lists
 . Vectors
-. Maps
-. Sets
+
+Hidden topics
+
+* Apply
+* Sequences
+* Lazy sequences
+* List vs Vector
 
 == Lists
 
@@ -124,6 +130,8 @@ You might use either your `nth-element` function or clojure `nth`.
 
 image::clojure-vectors.png[]
 
+The secrets of persistent data structures https://hypirion.com/musings/understanding-persistent-vector-pt-1[Part 1] and https://hypirion.com/musings/understanding-persistent-vector-pt-2[Part 2].
+
 === Vector creation
 
 [.fragment]
@@ -133,32 +141,38 @@ Vectors are created using `vector`
 (vector 1 2 3 4 5)
 --
 
-[.fragment]
---
-Vectors can also be created using the literal `[]`
-[source.eval-clojure, clojure]
-[1 2 3 4 "aa" [1 2] [1 2 3]]
---
+{bl}
 
 [.fragment]
 --
-Like with lists, you can access the first element with `first`
+We can convert a list into a vector using `apply`
+[source.eval-clojure, clojure]
+(apply vector '(1 2 3 4 5))
+--
+
+{bl}
+
+[.fragment]
+--
+Nested vectors can be created using the literal `[]`
+[source.eval-clojure, clojure]
+(def a [1 2 3 4 "aa" [1 2] [1 2 3]])
+a
+--
+
+=== Vector access
+
+[.fragment]
+--
+The sequence functions work on any collection: like with lists, you can access the first element with `first`
 [source.eval-clojure, clojure]
 (first [1 2 3 4 5])
 --
-
 [.fragment]
 --
-And you can also access any element in the vector and it is efficient:
+Be careful: `rest` always returns a sequence!
 [source.eval-clojure, clojure]
-(get [0 1 2 3 4 5 6 7 8 9 10] 7)
---
-
-[.fragment]
---
-You can convert a list into a vector with `vec`
-[source.eval-clojure, clojure]
-(vec '(1 2 3 4 5))
+(rest [1 2 3 4 5])
 --
 
 
@@ -168,7 +182,7 @@ You can convert a list into a vector with `vec`
 |===
 a| [.fragment]
 --
-Let's create a long list
+Let's create a very long list
 [source.eval-clojure, clojure]
 (def long-list (reverse
 (reverse (range 1e6))))
@@ -209,6 +223,9 @@ a|
 (time (last long-vec))
 --
 
+[.fragment]
+{meditation} Why do we need list if vector has better performances?
+
 === Vectors - Practice
 
 > Write a function that receives a vector and converts it to a list
@@ -223,7 +240,7 @@ a|
 
 === Vectors - Practice (2)
 
-> Write a recursive function that receives a vector and a "thing" vector and returns `true` or `false` according to the presence of the "thing" in the vector
+> Write a recursive function that receives a vector and a "thing" and returns `true` or `false` according to the presence of the "thing" in the vector
 
 [source.eval-clojure, clojure]
 (defn present? [v thing])
