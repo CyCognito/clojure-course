@@ -11,7 +11,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 	 selector_eval_html: '.eval-html',
    re_evaluate_all_snippets_on_change: false, // it makes snippet evaluation too slow
  };
-</script><link rel="stylesheet" href="slides.css"></head><body><div class="reveal"><div class="slides"><section id="data_collections" data-state="title"><h2>Data collections</h2><div class="openblock centered"><div class="content"><div class="paragraph"><p><br>
+</script><link rel="stylesheet" href="slides.css"></head><body><div class="reveal"><div class="slides"><section id="sets" data-state="title"><h2>Sets</h2><div class="openblock centered"><div class="content"><div class="paragraph"><p><br>
 <br>
 <br>
 <br>
@@ -21,26 +21,25 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <br>
 <span class="icon"><i class="fa fa-heart fa-lg"></i></span></p></div>
 <div class="imageblock left" style=""><img src="img/clojure-logo.png" alt="clojure logo" height="300px"></div></div></div></section>
-<section id="sets_creation"><h2>Sets - creation</h2><div class="paragraph"><p>To create a set from a collection, you use set:</p></div>
-<div class="paragraph"><p>(set '(1 "hello" [1 2]))
-#{1 "hello" [1 2]}
-In a set, there are no duplicates</p></div>
-<div class="paragraph"><p>(set [1 1 "hello" "hello" [1 2] '(1 2)])
-#{1 "hello" [1 2]}
-Why [1 2] and (1 2) are considered as duplicates?</p></div>
-<div class="paragraph"><p>You can also create a set with the set literal #{}</p></div>
-<div class="paragraph"><p>#{1 2 "hello" [1 2]}
-#{1 2 "hello" [1 2]}
+<section id="sets_2"><h2>Sets</h2><div class="paragraph"><p>☕ When is a set a better fit than a list or a vector?</p></div></section>
+<section id="sets_creation"><h2>Sets - creation</h2><div class="openblock fragment"><div class="content"><div class="paragraph"><p>To create a set from a sequence, you use <code>set</code>:</p></div>
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(set '(1 "hello" [1 2]))</code></pre></div></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p>In a set, there are no duplicates</p></div>
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(set [1 1 "hello" "hello" [1 2] '(1 2)])</code></pre></div></div>
+<div class="paragraph"><p>☕ Why <code>[1 2]</code> and <code>(1 2)</code> are considered as duplicates?</p></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p>You can also create a set with the set literal <code>#{}</code>
 But then, duplicates are forbidden!</p></div>
-<div class="paragraph"><p>#{1 2 3 1}
-Syntax error reading source.
-Set literal contains duplicate key: 1
-What&#8217;s the difference between set and distinct?</p></div>
-<div class="paragraph"><p>(distinct [1 1 "hello" "hello" [1 2] '(1 2)])
-(1 "hello" [1 2])
-You can also use (into #{}) to create a set</p></div>
-<div class="paragraph"><p>(into #{} [1 2 3 3 4])
-#{1 2 3 4}</p></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">#{1 2 3 1}</code></pre></div></div></div></div></section>
+<section id="sets_functions"><h2>Sets - functions</h2><div class="openblock fragment"><div class="content"><div class="paragraph"><p>It&#8217;s efficient to check if an element belongs to a set</p></div>
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(contains? #{1 2 3} 2)</code></pre></div></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p>Checking belonging is the most natural operation on a set. Set behaves as a function</p></div>
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(#{1 2 3} 2)</code></pre></div></div></div></div></section>
+<section id="making_a_sequence_concrete"><h2>Making a sequence concrete</h2><div class="openblock fragment"><div class="content"><div class="paragraph"><p><code>(into #{})</code> converts a sequence into a set</p></div>
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(into #{} (range 5))</code></pre></div></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p><code>(into [])</code> converts a sequence into a vector</p></div>
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(into [] (range 5))</code></pre></div></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p><code>(into ())</code> converts a sequence into a list</p></div>
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(into [] (range 5))</code></pre></div></div></div></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,
