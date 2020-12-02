@@ -1,4 +1,4 @@
-= Clojure course: Part 3
+= Clojure course: sequences
 include::slide.attrs[]
 
 [state=title]

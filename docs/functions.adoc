@@ -1,4 +1,4 @@
-= Clojure course: Part 1
+= Clojure course: Functions
 include::slide.attrs[]
 
 

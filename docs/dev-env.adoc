@@ -1,4 +1,4 @@
-= Clojure course: Part 2
+= Clojure course: Dev environmen
 include::slide.attrs[]
 :link-intellij-shortcuts: https://docs.google.com/spreadsheets/d/1ziaariJcAj4LpIO10nwb3C--TMkxHiGpl75kGgQou8s/edit#gid=0
 

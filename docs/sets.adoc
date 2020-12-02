@@ -1,0 +1,38 @@
+= Clojure course: Sets
+include::slide.attrs[]
+
+[state=title]
+== Data collections
+include::{includedir}/intro.adoc[]
+
+
+
+== Sets - creation
+
+To create a set from a collection, you use set:
+
+(set '(1 "hello" [1 2]))
+#{1 "hello" [1 2]}
+In a set, there are no duplicates
+
+(set [1 1 "hello" "hello" [1 2] '(1 2)])
+#{1 "hello" [1 2]}
+Why [1 2] and (1 2) are considered as duplicates?
+
+You can also create a set with the set literal #{}
+
+#{1 2 "hello" [1 2]}
+#{1 2 "hello" [1 2]}
+But then, duplicates are forbidden!
+
+#{1 2 3 1}
+Syntax error reading source.
+Set literal contains duplicate key: 1
+What's the difference between set and distinct?
+
+(distinct [1 1 "hello" "hello" [1 2] '(1 2)])
+(1 "hello" [1 2])
+You can also use (into #{}) to create a set
+
+(into #{} [1 2 3 3 4])
+#{1 2 3 4}
