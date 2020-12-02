@@ -160,22 +160,6 @@ Nested vectors can be created using the literal `[]`
 a
 --
 
-=== Vector access
-
-[.fragment]
---
-The sequence functions work on any collection: like with lists, you can access the first element with `first`
-[source.eval-clojure, clojure]
-(first [1 2 3 4 5])
---
-[.fragment]
---
-Be careful: `rest` always returns a sequence!
-[source.eval-clojure, clojure]
-(rest [1 2 3 4 5])
---
-
-
 === Vectors vs lists: performances
 
 [cols="2*", frame=none, grid=none]
@@ -222,9 +206,51 @@ a|
 [source.eval-clojure, clojure]
 (time (last long-vec))
 --
+=== Vectors vs lists
 
 [.fragment]
-{meditation} Why do we need list if vector has better performances?
+{meditation} Why do we need lists if vectors has better performances?
+
+{bl}
+
+[.fragment]
+* Lists are more efficient in terms of memory
+* For iterations, lists are more efficient in terms of CPU
+* Deep argument: When a list is enough why would we use a vector?
+
+
+=== The sequence abstraction
+
+[.fragment]
+--
+The sequence functions work on any collection: like with lists, you can access the first element with `first`
+[source.eval-clojure, clojure]
+(first [1 2 3 4 5])
+--
+
+[.fragment]
+--
+Be careful: `rest` always returns a sequence!
+[source.eval-clojure, clojure]
+(rest [1 2 3 4 5])
+--
+
+[.fragment]
+--
+Notice that a sequence is not the same as a list
+[source.eval-clojure, clojure]
+(= (type (rest [1 2 3 4 5])) (type '(2 3 4 5)))
+--
+
+[.fragment]
+--
+Equality check the values not the concretes sequence type
+
+[source.eval-clojure, clojure]
+(= (rest [1 2 3 4 5]) '(2 3 4 5))
+--
+
+Read more about sequences in https://clojure.org/reference/sequences[Clojure web site]
 
 === Vectors - Practice
 
@@ -241,6 +267,8 @@ a|
 === Vectors - Practice (2)
 
 > Write a recursive function that receives a vector and a "thing" and returns `true` or `false` according to the presence of the "thing" in the vector
+
+{meditation} Why such a function is not implemented in `clojure.core`?
 
 [source.eval-clojure, clojure]
 (defn present? [v thing])
