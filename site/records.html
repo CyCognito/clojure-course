@@ -37,7 +37,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
            "Dr. Manhattan"))
 (assert (= (title (rename (Mr. "Hyde") "T"))
            "Mr. T"))</code></pre></div></div></section>
-<section id="solution"><h2>Solution</h2><div class="listingblock eval-clojure hidden"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(defprotocol IWithTitle
+<section id="solution"><h2>Solution</h2><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(comment
+(defprotocol IWithTitle
   (title [this]))
 
 (defprotocol IGreet
@@ -67,7 +68,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 
 (extend-type Mr
   IRenamable
-  (rename [doctor new-name] (assoc doctor :my-name new-name)))</code></pre></div></div></section>
+  (rename [doctor new-name] (assoc doctor :my-name new-name)))
+  )</code></pre></div></div></section>
 <section id="deep_insights"><h2>Deep insights</h2><div class="paragraph"><p>☕ No inheritance</p></div>
 <div class="paragraph"><p>☕ Defer implementation to a function that could be shared between records</p></div>
 <div class="paragraph"><p>☕ Records are immutable.</p></div>
@@ -78,7 +80,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <div class="paragraph"><p>☕ When to use records instead of maps?</p></div>
 <div class="paragraph"><p>☕ Records can be extended from the outside</p></div>
 <div class="paragraph"><p>☕ A protocol is an aggregation of function signatures</p></div>
-<div class="paragraph"><p>☕ Various ways to instantiate a record</p></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<div class="paragraph"><p>☕ Various ways to instantiate a record</p></div>
+<script>
+document.getElementById("solution").classList.add("hidden")
+window.displaySolutions = function() {
+   document.getElementById("solution").classList.remove("hidden")
+}
+
+</script></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,

@@ -52,11 +52,11 @@ Guidelines:
 (assert (= (title (rename (Mr. "Hyde") "T"))
            "Mr. T"))
 
-
 == Solution
 
-[source.eval-clojure.hidden, clojure]
+[source.eval-clojure, clojure]
 --
+(comment
 (defprotocol IWithTitle
   (title [this]))
 
@@ -88,6 +88,7 @@ Guidelines:
 (extend-type Mr
   IRenamable
   (rename [doctor new-name] (assoc doctor :my-name new-name)))
+  )
 --
 
 == Deep insights
@@ -113,3 +114,13 @@ Guidelines:
 {meditation} A protocol is an aggregation of function signatures
 
 {meditation} Various ways to instantiate a record
+
+++++
+<script>
+document.getElementById("solution").classList.add("hidden")
+window.displaySolutions = function() {
+   document.getElementById("solution").classList.remove("hidden")
+}
+
+</script>
+++++
