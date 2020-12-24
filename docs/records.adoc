@@ -13,6 +13,7 @@ include::{includedir}/intro.adoc[]
 * https://clojuredocs.org/clojure.core/defprotocol[defprotocol]
 * https://clojuredocs.org/clojure.core/defrecord[defrecord]
 * https://clojuredocs.org/clojure.core/extend-type[extend-type]
+* https://enterpriseclojure.com/manual.html#_protocols[Enterprise Clojure: Protocols]
 * https://www.braveclojure.com/multimethods-records-protocols/[Clojure for the brave and true: Creating and Extending Abstractions with Multimethods, Protocols, and Records]
 
 == Practice
