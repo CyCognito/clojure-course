@@ -27,6 +27,7 @@ Create two records `Doctor` and `Mr` that implement three methods:
 
 Guidelines:
 
+* Test your code with the unit tests on next slide
 * Define a protocol for each method
 * Let `Doctor` and `Mr` give different names to their arguments
 * Implement some of the record methods inside the record.
