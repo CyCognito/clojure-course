@@ -119,4 +119,5 @@ image::tools.jpg[]
 . Register to http://clojurians.net/[Clojurians: Slack Channel, window="_blank"]
 . Post at least 1 question on Clojurians
 . 10 minutes of http://clojurescriptkoans.com/[ClojureScript koans, window="_blank"] every day
+. Read https://www.braveclojure.com/do-things/[Do Things: A Clojure Crash course]
 
