@@ -28,7 +28,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
    (* 5 6))</code></pre></div></div></div></td><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">'(a b
   c
   [d.a d.b]
-  (e.a [e.b.a (e.b.b.a e.b.b.b)]
+  (e.a
+     [e.b.a (e.b.b.a e.b.b.b)]
     e.c)</code></pre></div></div></div></td></tr></table></section>
 <section><section id="functional_programming"><h2>Functional programming</h2><div class="paragraph"><p>A function is an entity that receives multiple <em>things</em> and return a <em>thing</em>.</p></div><div class="paragraph"><p>In <strong>functional programming</strong> the <em>things</em> that functions receive and return are allowed to be <strong>functions</strong>.</p></div><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">We say that functions are <strong>first class citizens</strong>.</td></tr></table></div><div class="imageblock" style=""><img src="img/first-class.jpg" alt="first class"></div></section><section id="function_syntax"><h2>Function syntax</h2><div class="openblock fragment"><div class="content"><div class="paragraph"><p>We create a function with <code>defn</code></p></div>
 <div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(defn bar

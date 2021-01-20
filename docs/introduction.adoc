@@ -28,7 +28,8 @@ a|
 '(a b
   c
   [d.a d.b]
-  (e.a [e.b.a (e.b.b.a e.b.b.b)]
+  (e.a
+     [e.b.a (e.b.b.a e.b.b.b)]
     e.c)
 |===
 
