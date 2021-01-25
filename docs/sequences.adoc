@@ -351,3 +351,4 @@ You might use either your `nth-element` function or clojure `nth`.
 === Read
 
 * Read more about sequences in https://clojure.org/reference/sequences[Clojure web site]
+* The secrets of persistent data structures https://hypirion.com/musings/understanding-persistent-vector-pt-1[Part 1] and https://hypirion.com/musings/understanding-persistent-vector-pt-2[Part 2].
