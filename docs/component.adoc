@@ -31,5 +31,6 @@ The code is here: https://github.com/viebel/clojure-web-server[A basic Clojure w
 
 . Run the web server locally
 . Interact with db from the REPL
-. Add an endpoint that removes a user
-. Add a https://github.com/http-kit/http-kit[http-kit] server that listens to another port
+. Open a separate PR for:
+.. Add an endpoint that removes a user
+.. Add a https://github.com/http-kit/http-kit[http-kit] server that listens to another port
