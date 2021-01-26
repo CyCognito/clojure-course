@@ -27,5 +27,9 @@ https://github.com/viebel/clojure-web-server[A basic Clojure web server built wi
 
 === Practice
 
-. Add an endpoint that 
+The code is here: https://github.com/viebel/clojure-web-server[A basic Clojure web server built with component]
+
+. Run the web server locally
+. Interact with db from the REPL
+. Add an endpoint that removes a user
 . Add a https://github.com/http-kit/http-kit[http-kit] server that listens to another port
