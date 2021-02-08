@@ -69,10 +69,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 (persistent! mutable-person)</code></pre></div></div></div></div></section>
 <section id="position_of_the_map_as_an_argument"><h2>Position of the map as an argument</h2><div class="olist arabic"><ol class="arabic"><li><p>Functions that treat the map as a sequence receive the map as last argument</p></li><li><p>Functions that treat the map as a concrete collection receive the map as first argument</p></li></ol></div>
 <div class="paragraph fragment"><p>Data manipulation mini pipeline</p></div>
-<div class="openblock"><div class="content"><div class="paragraph"><p>(&#8594;&gt; (zipmap [1 2 3 4] ["a" "b" "c" "d"])
+<div class="openblock"><div class="content"><div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(-&gt;&gt; (zipmap [1 2 3 4] ["a" "b" "c" "d"])
   (filter (fn [[k v]] (even? k)))
   (map (fn [[k v]] [(inc k) v]))
-  (into {}))</p></div></div></div>
+  (into {}))</code></pre></div></div></div></div>
 <div class="openblock fragment"><div class="content"><div class="paragraph"><p>Consecutive changes to a map</p></div>
 <div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(-&gt; (zipmap [1 2 3 4] ["a" "b" "c" "d"])
   (assoc 1 "AAA")

@@ -172,12 +172,11 @@ There is a mutable version of maps
 [.fragment]
 Data manipulation mini pipeline
 --
+[source.eval-clojure, clojure]
 (->> (zipmap [1 2 3 4] ["a" "b" "c" "d"])
   (filter (fn [[k v]] (even? k)))
   (map (fn [[k v]] [(inc k) v]))
   (into {}))
-[source.eval-clojure, clojure]
-
 --
 
 [.fragment]
