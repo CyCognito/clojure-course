@@ -52,8 +52,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(into {} (map (fn [[k v]]
                 [k (keyword v)])
               {:first-name "Joe"
-               :last-name "Cooker"}))</code></pre></div></div></div></div>
-<div class="openblock fragment"><div class="content"><div class="paragraph"><p>Filtering the entries</p></div>
+               :last-name "Cooker"}))</code></pre></div></div></div></div></section>
+<section id="filtering_a_map"><h2>Filtering a map</h2><div class="openblock fragment"><div class="content"><div class="paragraph"><p>Selecting a subset of keys</p></div>
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(select-keys (zipmap [1 2 3 4] ["a" "b" "c" "d"])
+  [1 3])</code></pre></div></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p>Filtering the entries that match a predicate</p></div>
 <div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(into {} (filter (fn [[k v]]
                 (even? v))
               (zipmap (range 10) (range 10))))</code></pre></div></div></div></div></section>
@@ -64,6 +67,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(def mutable-person (transient person))
 (assoc! mutable-person :first-name "David")
 (persistent! mutable-person)</code></pre></div></div></div></div></section>
+<section id="position_of_the_map_as_an_argument"><h2>Position of the map as an argument</h2><div class="olist arabic"><ol class="arabic"><li><p>Functions that treat the map as a sequence receive the map as last argument</p></li><li><p>Functions that treat the map as a concrete collection receive the map as first argument</p></li></ol></div>
+<div class="paragraph fragment"><p>Data manipulation mini pipeline</p></div>
+<div class="openblock"><div class="content"><div class="paragraph"><p>(&#8594;&gt; (zipmap [1 2 3 4] ["a" "b" "c" "d"])
+  (filter (fn [[k v]] (even? k)))
+  (map (fn [[k v]] [(inc k) v]))
+  (into {}))</p></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p>Consecutive changes to a map</p></div>
+<div class="listingblock eval-clojure"><div class="content"><pre class="highlight"><code data-noescape class="clojure language-clojure">(-&gt; (zipmap [1 2 3 4] ["a" "b" "c" "d"])
+  (assoc 1 "AAA")
+  (assoc 2 "BBB"))</code></pre></div></div></div></div></section>
 <section id="homework"><h2>Homework</h2><div class="olist arabic"><ol class="arabic"><li><p>Write a function <code>map-vals</code> that receives a function and a map and return a map where the values are transformed by the function.</p></li><li><p>Write a function <code>compactize-map</code> that removes entries with <code>nil</code> values from a map</p></li><li><p>Write a function <code>compactize-map-recursive</code> that recursively removes entries with <code>nil</code> values from a map</p></li><li><p>Write a function <code>submap?</code> that checks if m1 is a submap of m2. Map m1 is a submap of m2 if all key/value pairs in m1 exist in m2.</p></li></ol></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner

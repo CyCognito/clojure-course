@@ -123,9 +123,19 @@ Mapping the values
 --
 
 
+== Filtering a map
 [.fragment]
 --
-Filtering the entries
+Selecting a subset of keys
+[source.eval-clojure, clojure]
+(select-keys (zipmap [1 2 3 4] ["a" "b" "c" "d"])
+  [1 3])
+--
+
+
+[.fragment]
+--
+Filtering the entries that match a predicate
 [source.eval-clojure, clojure]
 (into {} (filter (fn [[k v]]
                 (even? v))
@@ -154,6 +164,30 @@ There is a mutable version of maps
 --
 
 
+== Position of the map as an argument
+
+. Functions that treat the map as a sequence receive the map as last argument
+. Functions that treat the map as a concrete collection receive the map as first argument
+
+[.fragment]
+Data manipulation mini pipeline
+--
+(->> (zipmap [1 2 3 4] ["a" "b" "c" "d"])
+  (filter (fn [[k v]] (even? k)))
+  (map (fn [[k v]] [(inc k) v]))
+  (into {}))
+[source.eval-clojure, clojure]
+
+--
+
+[.fragment]
+--
+Consecutive changes to a map
+[source.eval-clojure, clojure]
+(-> (zipmap [1 2 3 4] ["a" "b" "c" "d"])
+  (assoc 1 "AAA")
+  (assoc 2 "BBB"))
+--
 
 
 
