@@ -159,4 +159,9 @@ There is a mutable version of maps
 
 == Homework
 
-Write a function `map-vals` that receives a function and a map and return a map where the values are transformed by the function.
+. Write a function `map-vals` that receives a function and a map and return a map where the values are transformed by the function.
+. Write a function `compactize-map` that removes entries with `nil` values from a map
+. Write a function `compactize-map-recursive` that recursively removes entries with `nil` values from a map
+. Write a function `submap?` that checks if m1 is a submap of m2. Map m1 is a submap of m2 if all key/value pairs in m1 exist in m2.
+
+
