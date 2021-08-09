@@ -46,8 +46,8 @@ Guidelines:
 [source.eval-clojure, clojure]
 (assert (= (greet (map->Doctor {:name "Jekyll"}) "Hello")
            "Hello Dr. Jekyll"))
-(assert (= (greet (map->Mr. {:my-name "Hyde"}) "Hello")))
-
+(assert (= (greet (map->Mr. {:my-name "Hyde"}) "Hello")
+           "Hello Mr. Hyde"))
 [source.eval-clojure, clojure]
 (assert (= (title (rename (Doctor. "Jekyll") "Manhattan"))
            "Dr. Manhattan"))
